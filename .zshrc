@@ -116,4 +116,3 @@ alias grep='grep --colour=auto'
 alias code='code-insiders'
 
 neofetch
-alias config="/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME"

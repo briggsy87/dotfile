@@ -9,6 +9,7 @@ export ZSH="/home/$USER/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 ZSH_THEME="theunraveler"
+#ZSH_THEME="agnoster"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -70,11 +71,15 @@ ZSH_THEME="theunraveler"
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
     archlinux
+    colored-man-pages
     git
     history-substring-search
-    colored-man-pages
+    sudo
     zsh-autosuggestions
-    zsh-syntax-highlighting	
+    zsh-syntax-highlighting
+    vscode
+    z
+
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -106,13 +111,15 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 # Changing "ls" to "exa"
-alias ls='exa -al --color=always --group-directories-first' # my preferred listing
-alias la='exa -a --color=always --group-directories-first'  # all files and dirs
-alias ll='exa -l --color=always --group-directories-first'  # long format
-alias lt='exa -aT --color=always --group-directories-first' # tree listing
+#alias ls='exa -al --color=always --group-directories-first' # my preferred listing
+#alias la='exa -a --color=always --group-directories-first'  # all files and dirs
+#alias ll='exa -l --color=always --group-directories-first'  # long format
+#alias lt='exa -aT --color=always --group-directories-first' # tree listing
 
 alias df='df -h'                          # human-readable sizes
 alias grep='grep --colour=auto'
-alias code='code-insiders'
+#alias code='code-insiders'
 
 neofetch
+
+alias myip="curl http://ipecho.net/plain; echo"

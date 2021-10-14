@@ -50,7 +50,7 @@ map('n', '<leader>q', ':quitall<CR>', default_opts)
 -- Applications & Plugins shortcuts:
 -----------------------------------------------------------
 -- open terminal
-map('n', '<C-t>', ':Term<CR>', {noremap = true})
+map('n', '<C-t>', ':terminal<CR>', {noremap = true})
 
 --Git Commands
 map('n', '<leader>ga', ':Git fetch --all<CR>', {noremap = true})
@@ -62,13 +62,13 @@ map('n', '<leader>gu', ':diffget //2<CR>', {noremap = true})
 map('n', '<leader>gs', ':G<CR>', {noremap = true})
 map('n', '<leader>gp', ':Git push<CR>', {noremap = true})
 -- nvim-tree
-map('n', '<leader>n', ':NERDTreeFocus<CR>', default_opts)       -- open/close
-map('n', '<C-n>', ':NERDTree<CR>', default_opts)       -- open/close
-map('n', '<C-t>', ':NERDTreeToggle<CR>', default_opts)  -- refresh
+map('n', '<leader>nt', ':NERDTreeFocus<CR>', default_opts)       -- open/close
+--map('n', '<C-n>', ':NERDTree<CR>', default_opts)       -- open/close
+--map('n', '<C-t>', ':NERDTreeToggle<CR>', default_opts)  -- refresh
 map('n', '<C-f>', ':NERDTreeFind<CR>', default_opts) -- search file
 
 -- Sessionizer
-map('n', '<C-f>', ':silent !tmux neww tmux-sessionizer<CR>', default_opts)       -- open/close
+--map('n', '<C-f>', ':silent !tmux neww tmux-sessionizer<CR>', default_opts)       -- open/close
 
 -- Telescope
 map('n', '<leader>ff', '<cmd>Telescope find_files<CR>', default_opts) -- search file

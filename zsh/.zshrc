@@ -77,7 +77,7 @@ plugins=(
     sudo
     zsh-autosuggestions
     zsh-syntax-highlighting
-    vscode
+    vscodoe
     z
 
 )
@@ -123,3 +123,5 @@ alias grep='grep --colour=auto'
 neofetch
 
 alias myip="curl http://ipecho.net/plain; echo"
+
+alias vim="nvim"

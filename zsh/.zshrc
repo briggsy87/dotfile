@@ -77,7 +77,7 @@ plugins=(
     sudo
     zsh-autosuggestions
     zsh-syntax-highlighting
-    vscodoe
+    vscode
     z
 
 )

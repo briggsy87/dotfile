@@ -1,4 +1,5 @@
---require("briggsadier.telescope")
+require("briggsadier.telescope")
+require("briggsadier.lsp")
 --
 --local currentmod = (...)
 --local M = {}

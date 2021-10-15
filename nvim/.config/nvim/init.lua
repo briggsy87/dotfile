@@ -16,6 +16,9 @@ Plug 'junegunn/gv.vim'
 
 --Language server plugin
 Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/nvim-cmp'
 
 --Black code python formatter
 Plug 'ambv/black'
@@ -37,5 +40,6 @@ vim.call('plug#end')
 vim.cmd  [[let g:dracula_colorterm = 0]]
 vim.cmd  [[colorscheme dracula]]
 
-require("briggsadier.telescope")
+require("briggsadier")
+--require'lspconfig'.pyright.setup{}
 --require('telescope').setup{ defaults = { vimgrep_arguments = { 'rg', '--hidden', '--color=never', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case' }}}

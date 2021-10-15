@@ -26,3 +26,6 @@ goPersonal() {
 cat1Line() {
     cat $1 | tr -d "\n"
 }
+
+# Where should I put you?
+bindkey -s ^f "tmux-sessionizer\n"

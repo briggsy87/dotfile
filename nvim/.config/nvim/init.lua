@@ -36,3 +36,6 @@ vim.call('plug#end')
 
 vim.cmd  [[let g:dracula_colorterm = 0]]
 vim.cmd  [[colorscheme dracula]]
+
+require("briggsadier.telescope")
+--require('telescope').setup{ defaults = { vimgrep_arguments = { 'rg', '--hidden', '--color=never', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case' }}}

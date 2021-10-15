@@ -3,6 +3,7 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/$USER/.oh-my-zsh"
+export DOTFILES=$HOME/dotfiles
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -125,3 +126,5 @@ neofetch
 alias myip="curl http://ipecho.net/plain; echo"
 
 alias vim="nvim"
+export PATH=~/.local/bin:$PATH
+setopt globdots

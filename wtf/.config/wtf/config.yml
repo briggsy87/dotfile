@@ -1,0 +1,97 @@
+wtf:
+  colors:
+    border:
+      focusable: darkslateblue
+      focused: orange
+      normal: gray
+  grid:
+    columns: [32, 32, 32, 32, 90]
+    rows: [10, 10, 10, 4, 4, 90]
+  refreshInterval: 1
+  mods:
+    clocks_a:
+      colors:
+        rows:
+          even: "lightblue"
+          odd: "white"
+      enabled: true
+      locations:
+        Toronto: "America/Toronto"
+        Stockholm: "Europe/Stockholm"
+      position:
+        top: 1
+        left: 1
+        height: 1
+        width: 1
+      refreshInterval: 15
+      sort: "alphabetical"
+      title: "Time"
+      type: "clocks"
+    docker:
+      type: docker
+      enabled: true
+      labelColor: lightblue
+      position:
+        top: 1
+        left: 0
+        height: 3
+        width: 1
+      refreshInterval: 1
+    ipinfo:
+      colors:
+        name: "lightblue"
+        value: "white"
+      enabled: true
+      position:
+        top: 2
+        left: 1
+        height: 1
+        width: 1
+      refreshInterval: 150
+    uptime:
+      args: [""]
+      cmd: "uptime"
+      enabled: true
+      position:
+        top: 0
+        left: 0
+        height: 1
+        width: 2
+      refreshInterval: 30
+      type: cmdrunner
+      kubernetes:
+        enabled: true
+        kubeconfig: "~/.kube/config"
+        namespaces:
+        - dev-pwm
+        objects:
+        - pods
+        position:
+          top: 3
+          left: 2
+          height: 4
+          width: 2
+        refreshInterval: 1
+        title: "Build System"
+    resourceusage:
+      cpuCombined: false
+      enabled: true
+      position:
+        top: 1
+        left: 2
+        height: 2
+        width: 1
+      refreshInterval: 1
+      showCPU: true
+      showMem: true
+      showSwp: true
+    cmdrunner:
+      cmd: "task_fetcher.sh"
+      enabled: true
+      position:
+        top: 4
+        left: 0
+        height: 3
+        width: 2
+      refreshInterval: 30
+      title: "Tasks"

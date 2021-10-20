@@ -1,0 +1,14 @@
+set smtp_authenticators="login"
+set ssl_use_sslv3=yes
+set timeout=15
+
+#IMAP
+set mbox="imap://outlook.office365.com/INBOX"
+set postponed="imap://outlook.office365.com/Drafts"
+set spoolfile="imap://outlook.office365.com/INBOX"
+set folder="imap://outlook.office365.com/"
+set record="imap://outlook.office365.com/Sent Items"
+set trash="imap://outlook.office365.com/Deleted Items"
+mailboxes
+
+source "gpg -d ~/.config/mutt/accounts/work_passwords.gpg |"

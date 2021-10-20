@@ -1,0 +1,9 @@
+# Accounts
+
+source ~/.config/mutt/accounts/work
+folder-hook $folder 'source ~/.config/mutt/accounts/work'
+
+# config files
+source ~/.config/mutt/settings
+source ~/.config/mutt/bindings
+source ~/.config/mutt/themes/dracula.muttrc

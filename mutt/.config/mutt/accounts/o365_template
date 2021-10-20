@@ -1,0 +1,7 @@
+set imap_user="" #your IMAP user name or login
+set imap_pass="" #your IMAP password
+
+set smtp_url="smtp://___email_address___@smtp.office365.com:587/"
+set smtp_pass=""
+set from=""
+set realname=""

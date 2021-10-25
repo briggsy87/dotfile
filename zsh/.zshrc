@@ -131,6 +131,9 @@ setopt globdots
 
 alias luamake=/home/briggsy/dotfiles/nvim/.config/nvim/lua-language-server/3rd/luamake/luamake
 
+alias gpr="tfs-helper -t get_prs"
+alias gre="tfs-helper -t get_repos"
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

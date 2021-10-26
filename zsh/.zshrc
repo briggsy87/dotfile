@@ -147,6 +147,18 @@ setopt globdots
 
 alias luamake=/home/briggsy/dotfiles/nvim/.config/nvim/lua-language-server/3rd/luamake/luamake
 
+#git related
+alias gitclean='git branch --merged | egrep -v "(^\*|main|development)" | xargs git branch -d'
+alias gitdryclean='git branch --merged | egrep -v "(^\*|main|development)"'
+alias gitversion='~/.dotnet/tools/dotnet-gitversion'
+alias gitconf-work='git config user.name "Kyle Briggs" && git config user.email "kyle.briggs@specopssoft.com"'
+alias gitconf-personal='git config user.name "Kyle Briggs" && git config user.email "briggsy87@gmail.com"'
+
+#tfs-helper
+alias gpr="tfs-helper -t get_prs"
+alias gre="tfs-helper -t get_repos"
+
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

@@ -1,0 +1,63 @@
+#!/bin/bash
+
+user='kyle.briggs'
+pat="$(pass show tfs_api_pat)"
+baseurl='https://tfs.specops.specopssoft.com/tfs/DefaultCollection'
+
+
+while getopts t: flag
+do
+    case "${flag}" in
+        t) task=${OPTARG};;
+    esac
+done
+
+echo "Running Task: $task"
+
+
+projects=$(echo "Specops|DevOps" | tr -s "|" "\n")
+
+get_prs() {
+    repositories=$( \
+        curl -sku \
+        $user:$pat \
+        "$baseurl/Specops/_apis/git/repositories?api-version=6.1-preview.1" \
+        | jq -r '.value | .[].id ' 
+    )
+    for repository in $repositories
+        do
+            prs=$prs$( curl -sku $user:$pat \
+            -A "PR Picker" "$baseurl/_apis/git/repositories/$repository/pullrequests?&searchCriteria.status=active&api-version=6.1-preview.1" \
+            | jq -r '.value | .[] ')
+        done
+        json=$(echo $prs \
+            | jq -r '"\(.createdBy.displayName)\t\(.repository.name)\t\(.title)\t\(.url)"'
+       )
+       url=$(echo "$json" | fzf --delimiter='\t' --with-nth=1,2,3 | cut -f4 \
+           | sed 's|apis/git/repositories|git|g;  s|pullRequests|pullrequest|g;')
+       if [[ -n $url ]]; then
+         xdg-open "$url"
+       fi
+}
+
+get_repos() {
+for project in $projects
+    do
+        project_json=$project_json$(curl -sku $user:$pat \
+        -A 'Repo Picker' "$baseurl/$project/_apis/git/repositories?api-version=6.1-preview.1" \
+        | jq -r '.value | .[] ')
+    done
+
+    json=$(echo $project_json \
+          | jq -r '"\(.name)\t\(.remoteUrl)"'
+      )
+      #TODO: Fix preview
+      # --preview 'echo $project_json | jq ''select(.name==$(echo {1} | tr -d "''" ))''' \
+      url=$(echo "$json" | fzf --delimiter='\t' --with-nth=1 \
+          | cut -f2)
+      if [[ -n $url ]]; then
+        xdg-open "$url"
+      fi
+}
+
+type $task &>/dev/null && $task || echo "$task not found."

@@ -10,25 +10,28 @@ import subprocess
 def status_bar(widgets):
     return bar.Bar(widgets, 24, opacity=0.95)
 
+def get_monitors():
+    xr = subprocess.check_output('xrandr --query | grep " connected"', shell=True).decode().split('\n')
+    monitors = len(xr) - 1 if len(xr) > 2 else len(xr)
+    return monitors
 
-screens = [Screen(top=status_bar(primary_widgets))]
 
-xrandr = "xrandr | grep -w 'connected' | cut -d ' ' -f 2 | wc -l"
+monitors = get_monitors()
 
-command = subprocess.run(
-    xrandr,
-    shell=True,
-    stdout=subprocess.PIPE,
-    stderr=subprocess.PIPE,
-)
+# Move window to screen with Mod, Alt and number
+#for i in range(monitors):
+#    keys.extend([Key([mod, "mod1"], str(i), lazy.window.toscreen(i))])
 
-if command.returncode != 0:
-    error = command.stderr.decode("UTF-8")
-    logger.error(f"Failed counting monitors using {xrandr}:\n{error}")
-    connected_monitors = 1
-else:
-    connected_monitors = int(command.stdout.decode("UTF-8"))
+screens = []
 
-if connected_monitors > 1:
-    for _ in range(1, connected_monitors):
+for monitor in range(monitors):
+    if monitor == 0:
+        screens.append(Screen(top=status_bar(primary_widgets)))
+    else:
         screens.append(Screen(top=status_bar(secondary_widgets)))
+
+# screens = [Screen(top=status_bar(primary_widgets))]
+# if monitors > 1:
+#     for _ in range(1, monitors):
+#         screens.append(Screen(top=status_bar(secondary_widgets)))
+#         pass

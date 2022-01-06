@@ -44,11 +44,12 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([mod], "period", lazy.next_screen()),
     ([mod], "comma", lazy.prev_screen()),
 
+    ([mod, "shift", "control"], "l", lazy.spawn("betterlockscreen -l")),
+       
     # Restart Qtile
     ([mod, "control"], "r", lazy.restart()),
 
     ([mod, "control"], "q", lazy.shutdown()),
-    ([mod], "r", lazy.spawncmd()),
 
     # ------------ App Configs ------------
 
@@ -65,17 +66,20 @@ keys = [Key(key[0], key[1], *key[2:]) for key in [
     ([mod], "c", lazy.spawn("code")),
 
     # File Explorer
-    ([mod], "e", lazy.spawn("pcmanfm")),
+    ([mod], "e", lazy.spawn("ranger")),
 
     # Terminal
     ([mod], "Return", lazy.spawn("alacritty")),
+    
+
+    ([mod], "o", lazy.spawn("/home/kyle/.local/bin/tmux-sessionizer")),
 
     # Redshift
     ([mod], "r", lazy.spawn("redshift -O 2400")),
     ([mod, "shift"], "r", lazy.spawn("redshift -x")),
 
     # Screenshot
-    ([mod], "s", lazy.spawn("scrot documents/photos/")),
+    ([], "Print", lazy.spawn("scrot -s -e 'xclip -selection clipboard -t image/png -i $f'")),
 
     # ------------ Hardware Configs ------------
 
